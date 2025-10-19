@@ -1,0 +1,107 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table student {
+  indeks_studenta integer [primary key]
+  imie varchar
+  nazwisko varchar
+  id_grupy integer [not null]
+  id_roli integer [not null]
+
+  indexes {
+    (id_grupy, id_roli) [unique]
+  }
+}
+Table rola_studenta{
+  id_roli integer [primary key]
+  nazwa_roli varchar
+}
+
+Table grupa{
+  id_grupy integer [primary key]
+  id_roku integer [not null]
+  indexes {
+    (id_roku) [unique]
+  }
+}
+
+Table kierunek {
+  id_kierunku integer [primary key]
+  nazwa_kierunku varchar
+}
+
+Table przedmiot {
+  id_przedmiotu integer [primary key]
+  nazwa_przedmiotu varchar
+  id_prowadzacego integer [not null]
+  indexes {
+    (id_prowadzacego) [unique]
+  }
+}
+Table prowadzacy {
+  id_prowadzacego integer [primary key]
+  imie_prowadzacego varchar
+  nazwisko_prowadzacego varchar
+  tytul_naukowy varchar
+}
+Table ocena_przedmiotu{
+  id_oceny integer [primary key]
+  id_przedmiotu integer [not null]
+  indeks_studenta integer [not null]
+  wartosc integer 
+  indexes {
+    (id_przedmiotu, indeks_studenta) [unique]
+  }
+}
+
+Table rok{
+  id_roku integer [primary key]
+  id_kierunku integer [not null]
+  rok integer
+  indexes {
+    (id_kierunku) [unique]
+  }
+}
+
+// Table zajecia {
+//   id_zajec integer [primary key]
+//   id_grupy integer [not null]
+//   id_przedmiotu integer
+//   dzien_tygodnia varchar
+//   blok_g
+//   indexes {
+//     (id_grupy, id_przedmiotu) [unique]
+//   }
+// }
+Table komentarz {
+  id_kometarza integer [primary key]
+  indeks_studenta integer [not null]
+  tresc varchar
+  id_przedmiotu integer [not null]
+  indexes {
+    (indeks_studenta, id_przedmiotu) [unique]
+  }
+}
+
+Ref: student.id_grupy > grupa.id_grupy
+Ref: student.id_roli > rola_studenta.id_roli
+Ref: grupa.id_roku > rok.id_roku
+Ref: przedmiot.id_prowadzacego > prowadzacy.id_prowadzacego
+Ref: rok.id_kierunku > kierunek.id_kierunku
+Ref: ocena_przedmiotu.id_przedmiotu > przedmiot.id_przedmiotu
+Ref: ocena_przedmiotu.indeks_studenta > student.indeks_studenta
+// Ref: zajecia.id_grupy > grupa.id_grupy
+// Ref: zajecia.id_przedmiotu > przedmiot.id_przedmiotu
+Ref: komentarz.indeks_studenta > student.indeks_studenta
+Ref: komentarz.id_przedmiotu > przedmiot.id_przedmiotu
+
+
+
+
+
+
+// Ref user_posts: posts.user_id > users.id // many-to-one
+
+// Ref: users.id < follows.following_user_id
+
+// Ref: users.id < follows.followed_user_id

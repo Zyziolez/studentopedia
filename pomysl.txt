@@ -1,0 +1,1 @@
+okej dobra mam pomysl. jest to aplikacja dla studentów, gdzie wybierasz swój kierunek i rok, a następnie wyświetlają ci się konkretne przedmioty. jak wejdziesz w przedmiot to masz podgląd (i możliwość edycji) informacji o nim (prowadzący, rating 1-10 trudność, liczba godzin) i możliwość dodania dokumentów jako notatki
