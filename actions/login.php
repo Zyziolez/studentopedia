@@ -13,6 +13,8 @@
         $user = $result->fetch_assoc();
         echo $user['imie'];
     }else{
-        include '../pages/create_account.php';
+        // include '../pages/create_account.php';
+        header('Location: ./../pages/create_account.php?indeks='.$student_index);
+        exit();
     }
 ?>
