@@ -11,7 +11,10 @@
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        echo $user['imie'];
+        session_start();
+        $_SESSION['student_index'] = $student_index;
+        header('Location: ./../pages/home.php');
+        exit();
     }else{
         // include '../pages/create_account.php';
         header('Location: ./../pages/create_account.php?indeks='.$student_index);
