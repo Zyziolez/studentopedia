@@ -9,15 +9,19 @@
 
     $result = $inq->get_result();
 
-    if ($result->num_rows === 1) {
+    if ($result->num_rows >= 1) {
         $user = $result->fetch_assoc();
         session_start();
-        $_SESSION['student_index'] = $student_index;
-        header('Location: ./../pages/home.php');
-        exit();
+        
+            $_SESSION['student_index'] = $student_index;
+            header('Location: ./../pages/home.php?indeks='.$student_index);
+            exit();
+        
     }else{
         // include '../pages/create_account.php';
-        header('Location: ./../pages/create_account.php?indeks='.$student_index);
-        exit();
+         
+            header('Location: ./../pages/create_account.php?indeks='.$student_index);
+            exit();
+          
     }
 ?>
