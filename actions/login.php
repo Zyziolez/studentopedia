@@ -14,7 +14,7 @@
         session_start();
         
             $_SESSION['student_index'] = $student_index;
-            header('Location: ./../pages/home.php?indeks='.$student_index);
+            header('Location: ./../pages/home.php');
             exit();
         
     }else{

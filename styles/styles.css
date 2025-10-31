@@ -1,24 +1,173 @@
+
+@font-face {
+    font-family: 'palo';
+    src: url(./../other/TypeUnion\ -\ Palo\ Compressed\ Medium.otf);
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+h1, h2,h3, button{
+    font-family: "Open Sans", sans-serif;
+    font-family: "Momo Trust Display", sans-serif;
+}
+p, a{
+    font-family: "Open Sans", sans-serif;
+    
+}
 #home-main{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
 }
+#user-circle{
+    background-color: rgb(190, 190, 190);
+    width: 5vw;
+    height: 5vw;
+    border-radius: 2.5vw;
+}
 #menu-left{
-background-color: green;
-width: 20vw;
-height: 100%;
+background-color: rgb(15, 18, 24);
+width: 100%;
+color: white;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding: 2vh 2vw;
+align-items: center;
 }
 #content-right{
-    background-color: yellow;
+    background-color: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
+    padding: 2vh 2vw;
 }
 .course-button{
     background-color: pink;
+}
+.course-info{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    padding: 2vh 2vw;
+}
+#star-icon{
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+.course-main-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#course-desc{
+    margin-top: 15px;
+    color: rgb(190, 190, 190);
+    margin-left: 15px;
+}
+#course-comments{
+    margin-top: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+.speech-bubble {
+	position: relative;
+	background: #dedede;
+	border-radius: .4em;
+    padding: 2vh 2vw;
+    margin-top: 15px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 21px solid transparent;
+	border-right-color: #dedede;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -10.5px;
+	margin-left: -21px;
+}
+.my-comment{
+    background-color: rgb(120, 166, 235);
+}
+.my-comment:after{
+    border-right-color: rgb(120, 166, 235);
+}
+
+.course-main-info button{
+    margin-right: 15px;
+}
+button{
+    padding: 10px 20px;
+
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+button:hover{
+     background-color: black;
+     color: white;
+     border: 2px solid white;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.href-course{
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(231, 231, 231);
+
+    margin-top: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.href-course:hover{
+    background-color: rgb(246, 246, 246);
+}
+.href-course-data{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-weight: bold;
+}
+.href-course-proffesor-data{
+    color: gray;
+    margin-left: 15px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 600px) {
+    .href-course{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+    }
+    .href-course a{
+        width: 100%;
+    }
+    .href-course button{
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .href-course-data{
+    justify-content: space-evenly;
+    flex-direction: column;
+}
 }
